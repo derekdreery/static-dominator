@@ -1,7 +1,7 @@
-use static_dominator::StaticDom;
+use dominator_static::StaticHtml;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let dom = StaticDom::from_str(
+    let dom = StaticHtml::from_str(
         r#"<div class="test">
             test<span>test2</span>
             <p style="font-weight:bold;">styled</p>
@@ -15,6 +15,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         "#,
         false,
     )?;
-    println!("{}", dom.as_html());
+    println!("{}", dom.gen_dominator());
     Ok(())
 }
